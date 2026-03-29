@@ -164,19 +164,23 @@ footer {
 <script>
 let count = localStorage.getItem("clickCount");
 
+// default value
 if (!count) {
-    count = 6837;
+  count = 6837;
 } else {
-    count = parseInt(count);
+  count = parseInt(count);
 }
 
-function increaseCount() {
-    count++;
-    localStorage.setItem("clickCount", count);
+// 👉 check: is device pe pehle count hua ya nahi
+let counted = localStorage.getItem("counted");
+
+if (!counted) {
+  count++; // sirf pehli baar increase
+  localStorage.setItem("clickCount", count);
+  localStorage.setItem("counted", "yes");
 }
 
-increaseCount();
-
+// show count
 document.getElementById("counter").innerText = "🔥 " + count + "+ Users Joined";
 </script>
 
