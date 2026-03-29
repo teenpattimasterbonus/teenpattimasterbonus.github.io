@@ -164,23 +164,17 @@ footer {
 <script>
 let count = localStorage.getItem("clickCount");
 
-// default value
 if (!count) {
   count = 6837;
 } else {
   count = parseInt(count);
 }
 
-// 👉 check: is device pe pehle count hua ya nahi
-let counted = localStorage.getItem("counted");
+// 👉 har refresh pe increase
+count++;
 
-if (!counted) {
-  count++; // sirf pehli baar increase
-  localStorage.setItem("clickCount", count);
-  localStorage.setItem("counted", "yes");
-}
+localStorage.setItem("clickCount", count);
 
-// show count
 document.getElementById("counter").innerText = "🔥 " + count + "+ Users Joined";
 </script>
 
